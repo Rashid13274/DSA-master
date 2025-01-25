@@ -38,7 +38,28 @@ function isomorphicString(s, t){
     return true;
 }
 
+function test(s, t){
+    if(s.length > t.length) {
+        return false;
+    }
+    let map = new Map();
 
-const s = 'abacba', t = 'xyxzyx';
-// const s = 'foo', t = 'bar';
+    for(let i = 0; i <s.length;i++){
+        let char_of_s = s[i];
+        let char_of_t = t[i];
+        if(map.has(char_of_s) && map.get(char_of_s) !== char_of_t){
+            return false;
+        }
+        else{
+            map.set(char_of_s, char_of_t);
+        }
+    }
+    return true;
+
+
+}
+
+// const s = 'abacba', t = 'xyxzyx';
+// const s = 'foo', t = 'egg';
+// const s = 'foo', t = 'bar'
 // console.log(isomorphicString(s,t));

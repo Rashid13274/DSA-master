@@ -26,6 +26,15 @@ function maximizeProfit(arr){
     }
     return maxProfit;
 }
-
+function test(arr){
+    let minimumSoFar = arr[0];
+    let maximizeProfit = 0;
+    for(let i =0; i<arr.length; i++){
+        minimumSoFar = Math.min(arr[i], minimumSoFar);
+        let profit  = arr[i] - minimumSoFar;
+        maximizeProfit = Math.max(maximizeProfit, profit);
+    }
+    return maximizeProfit;
+}
 let prices = [7, 1, 5, 3, 6, 4];
 console.log(maximizeProfit(prices));

@@ -14,32 +14,25 @@ Output: 4 (u is first non repeating character)
 */
 
 function uniqueCharacter(str){
-    
-
-    
-    let index = 0;
-    let map  =  new Map();
-    let arr = str.split('');
-
-    for (const element of arr) {
-        if (map.get(element)) {
+    let map = new Map();
+    //  first store the value in map 
+    for(let element of str){
+        if(map.has(element)){
             map.set(element, map.get(element) + 1);
         }
         else {
             map.set(element, 1);
         }
     }
-
-    for(let j =0; j<str.length; j++){
-        let ch = str.charAt(j);
-        let count = map.get(ch);
-        if(count == 1){
-            return j;
+// second iteration for check first unique charactor
+    for(let i = 0; i<str.length; i++){
+        let element = str.charAt(i);
+        if(map.get(element) == 1){
+            return i;
         }
     }
-    return -1;
+    return - 1;
 
 }
-
 // console.log(uniqueCharacter('calculate'));
 

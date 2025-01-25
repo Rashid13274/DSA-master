@@ -13,60 +13,30 @@ Output: ''
 
 */
 
-function longestCommonPrefix(arr){
-
-    let start = arr[0];
-    let next = arr[1];
-
-    let set = new Set();
-
-    if (start[0] !== next[0]) {
-        return '';
-    }
-
-    for (let i = 1; i < arr.length; i++) {
-        let next = arr[i];
-
-        for (let j = 0; j < start.length; j++) {
-            if (start[j] === next[j]) {
-                set.add(next[j])
-            }
-        }
-    }
-    return [...set].join('');
-}
-
-
-
-
-// console.log(longestCommonPrefix(['cat', 'cable', 'camera']));
-// console.log(longestCommonPrefix(['not', 'dog', 'elephent']));
-
-
 // Second Approch(edge case handled)
-function longestCommonPrefix2(arr) {
+function longestCommonPrefix(arr) {
     if (arr == null || arr.length === 0) {
         return '';  // Return an empty string for invalid input
     }
 
-    let prefix = arr[0];  // Take the first string as the initial prefix
+    let prefix = arr[0]; // Initial string as prefix
 
     for (let i = 1; i < arr.length; i++) {
         let currentString = arr[i];
+        while (!currentString.startsWith(prefix)) {
+            // Shorten the prefix by removing the last character
+            prefix = prefix.slice(0, prefix.length - 1);
 
-        // Reduce the prefix until it matches the start of the current string
-        while (currentString.indexOf(prefix) !== 0) {
-            prefix = prefix.slice(0, prefix.length - 1);  // Remove the last character
+            // If the prefix becomes empty, no common prefix exists
             if (prefix === '') {
-                return '';  // If no common prefix, return an empty string
+                return '';
             }
         }
     }
-
     return prefix;
 }
-
 // Example usage:
+
 // console.log(longestCommonPrefix(['cat', 'cable', 'camera']));  // Output: 'ca'
 // console.log(longestCommonPrefix(['not', 'dog', 'elephant']));  // Output: ''
 // console.log(longestCommonPrefix(['flower', 'flow', 'flight']));  // Output: 'fl'

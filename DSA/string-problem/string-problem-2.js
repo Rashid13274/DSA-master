@@ -20,23 +20,9 @@ function compressString(str){
 
 }
 
-function compressString2(str) {
-  let res = "";
-  let count = 1;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == str[i + 1]) {
-      count++;
-    }
 
-    if (str[i] !== str[i + 1]) {
-      res += str[i] + count;
-      count = 1;
-    }
-  }
-  return res;
-}
 // const str = 'aaabbccddaa';
-const str = 'aaabbccdda';
+const str = 'aaabbccddaaa';
 
 // console.log(compressString(str));
 console.log(test(str));

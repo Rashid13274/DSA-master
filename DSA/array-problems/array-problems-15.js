@@ -12,51 +12,93 @@ A solution set is:
 */
 
 
-function fourSum(arr, sum) {
-  arr.sort((a, b) => a - b); // Sort the array
-  let stack = [];
-
-  let n = arr.length;
-  for (let i = 0; i < n - 3; i++) {
-    if (i > 0 && arr[i] === arr[i - 1]) continue; // Skip duplicates for i
-
-    for (let j = i + 1; j < n - 2; j++) {
-      if (j > i + 1 && arr[j] === arr[j - 1]) continue; // Skip duplicates for j
-
-      let start = j + 1;
-      let end = n - 1;
-      let target = sum - (arr[i] + arr[j]);
-
-      while (start < end) {
-        let currentSum = arr[start] + arr[end];
-        if (currentSum === target) {
-          stack.push([arr[i], arr[j], arr[start], arr[end]]);
-          start++;
-          end--;
-
-          // Skip duplicates for start and end pointers
-          while (start < end && arr[start] === arr[start + 1]) start++;
-          while (start < end && arr[end] === arr[end - 1]) end--;
-        } else if (currentSum > target) {
-          end--;
-        } else {
-          start++;
-        }
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[][]}
+ */
+function fourSum(nums, target) {
+  // Sort array for two-pointer approach
+  nums.sort((a, b) => a - b);
+  const result = [];
+  const n = nums.length;
+  
+  // Handle edge cases
+  if (n < 4) return result;
+  
+  // First loop for a
+  for (let a = 0; a < n - 3; a++) {
+      // Skip duplicates for a
+      if (a > 0 && nums[a] === nums[a - 1]) continue;
+      
+      // Second loop for b
+      for (let b = a + 1; b < n - 2; b++) {
+          // Skip duplicates for b
+          if (b > a + 1 && nums[b] === nums[b - 1]) continue;
+          
+          // Use two pointers for remaining two numbers
+          let c = b + 1;
+          let d = n - 1;
+          
+          while (c < d) {
+              const sum = nums[a] + nums[b] + nums[c] + nums[d];
+              
+              if (sum === target) {
+                  result.push([nums[a], nums[b], nums[c], nums[d]]);
+                  
+                  // Skip duplicates for c
+                  while (c < d && nums[c] === nums[c + 1]) c++;
+                  // Skip duplicates for d
+                  while (c < d && nums[d] === nums[d - 1]) d--;
+                  
+                  c++;
+                  d--;
+              } else if (sum < target) {
+                  c++;
+              } else {
+                  d--;
+              }
+          }
       }
-    }
   }
-  return stack;
+  
+  return result;
 }
 
-// Test input
-const arr = [-2, -1, 0, 0, 1, 2];
-const sum = 0;
-console.log(fourSum(arr, sum));
+// Test cases
+console.log(fourSum([1,0,-1,0,-2,2], 0));
+// Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 
+console.log(fourSum([2,2,2,2,2], 8));
+// Output: [[2,2,2,2]]
+
+// Test cases
+// console.log(fourSum([1,0,-1,0,-2,2], 0));
+// Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+
+// console.log(fourSum([2,2,2,2,2], 8));
+// Output: [[2,2,2,2]]
+
+// Test input: 0
+// const arr = [-2, -1, 0, 0, 1, 2];
+// const sum = 0;
+// console.log(fourSum(arr, sum));
 
   
-  // // Test input
-  // const arr = [-2, -1, 0, 0, 1, 0];
+   // Test : 1
+  // const arr =  [-3,-1,0,2,4,5]  
+  // const sum = 1;
+  // console.log(fourSum(arr, sum));  // [ [ -3, -1, 2, 3 ] ]
+
+  // Test : 2
+
+  // arr = [-2, -1, 0, 0, 1, 0];
   // const sum = 0;
+
+  //  Test : 3
+  const arr = [-2,-1,-1,1,1,2,2];
+  const sum = 0;
+  console.log(fourSum(arr, sum));  // [ [ -2, -1, 1, 2 ], [ -1, -1, 1, 1 ] ]    
+  
   // console.log(fourSum(arr, sum));  // [ [ -2, -1, 1, 2 ], [ -2, 0, 0, 2 ], [ -1, 0, 0, 1 ] ]
 

@@ -102,57 +102,6 @@ function romanToInteger(str) {
     return result;
 }
 
-function romanTest(str){
-    if('' || !str) {
-        return 'plz put a valid string'
-    }
-
-    const map = new Map();
-    map.set('I', 1);
-    map.set('V', 5);
-    map.set('X', 10);
-    map.set('L', 50);
-    map.set('C', 100);
-    map.set('D', 500);
-    map.set('M', 1000);
-    
-    if(!validString(str)){
-        return 'Invalid string';
-    }
-
-
-    function validString(str){
-        const listOfInvalidRoman = [
-            /IIII/,
-            /XXXX/,
-            /LL/,
-            /CCCC/,
-            /MMMM/ 
-        ]
-
-        for(const pattern of listOfInvalidRoman){
-            if(pattern.test(str)){
-                return false;
-            }
-        }
-        return true;
-    }
-    let result = 0;
-
-    for(let i = 0; i<str.length-1; i++){
-        if(map.get(str[i]) >=  map.get(str[i + 1])){
-            result += map.get(str[i]);
-        }
-        else {
-            result -= map.get(str[i]);
-        }
-    }
-    // result +=  map.get(str[str.length - 1]);
-    result +=  map.get(str.length - 1);
-
-    return result;
-
-}
 
 // Example usage:
 // console.log(romanToInteger('XII'));    // Output: 12

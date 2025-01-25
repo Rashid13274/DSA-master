@@ -30,9 +30,9 @@ function validSubsequence(str1, str2){
     }
     return false;
 }
-// let str1 = "abe", str2 = "abcdefgh";
 
 
-let str1 = "ca", str2 = "abcdef";
+let str1 = "abe", str2 = "abcdef";
 
-console.log(validSubsequence(str1, str2));
+console.log(test(str1, str2));
+// console.log(validSubsequence(str1, str2));

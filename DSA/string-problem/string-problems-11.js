@@ -25,60 +25,33 @@ The characters in J are distincts.
  */
 
 // Using HashMap.
-function countNumberOfJewels(j, s){
-    let map = new Map();
-
-    let strArr = s.split('');
-
-    for (const element of strArr) {
-
-        if (map.has(element)) {
-            map.set(element, map.get(element) + 1);
-        }
-        else {
-            map.set(element, 1);
-        }
-    }
-
+function countNumberOfJewels(jewels, stones){
     let count = 0;
-
-    for (let i = 0; i < j.length; i++) {
-        let jewel = j.charAt(i);
-
-        if (map.has(jewel)) {
-
-            count += map.get(jewel);
-        }
-    }
-    return count;
-
-}
-
-function test(j, s){
-    let jewelCount = 0;
-    let map = new Map();
-    const sArr = s.split('');
-    for(const element of sArr){
+    // first  store the stones in map
+    const map = new Map();
+    for(const element of stones){
         if(map.has(element)){
-            map.set(element, map.get(element) + 1);
+            map.set(element, map.get(element) + 1);;
         }
         else{
             map.set(element, 1);
         }
     }
-    let i = 0; 
-    while(i < j.length){
-        let char = j.charAt(i);
-        if(map.has(char)){
-            jewelCount += map.get(char);
-            i++;
+    //  compre and count jewels can be formed from the stones
+    for(const element of jewels){
+        if(map.has(element)){
+            count += map.get(element);
         }
-
     }
-    return jewelCount;
+    return count; 
 }
 
-let j = 'aA', s = 'aAAbbbb';
-console.log(test(j, s));
-// let j=  'z', s = 'ZZ'
+
+
+// let j = 'aA', s = 'aAAbbbb';
+// console.log(test(j, s));
+
+let j=  'z', s = 'ZZ'
+// console.log(test(j, s));
+
 // console.log(countNumberOfJewels(j, s));

@@ -45,8 +45,9 @@ function swap(arr, idx1, idx2) {
 
 // Test case
 const arr = [1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32];
+
 const range = [10, 20];
-console.log(partitionedArray(arr, range));
+// console.log(partitionedArray(arr, range));
 // output: [1,  5,  4,  2,  1,  3, 14, 20, 20, 98, 87, 32, 54]
 
 

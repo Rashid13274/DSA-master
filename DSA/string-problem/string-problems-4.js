@@ -82,8 +82,14 @@ function detectCapital(str) {
 
 
 
+
 // 65 - 90 capital , 97 -122 small;
 // console.log(detectCapital('leetcode')); // Should return true
 // console.log(detectCapital('USA')); // Should return true
 // console.log(detectCapital('Google')); // Should return true
 // console.log(detectCapital('FlaG')); // Should return false
+
+console.log(test('leetcode')); // Should return true
+console.log(test('USA')); // Should return true
+console.log(test('Google')); // Should return true
+console.log(test('FlaG')); // Should return false

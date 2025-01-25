@@ -5,6 +5,8 @@ function extractingArgs(...args){
 // console.log(extractingArgs(1,2,3));
 
 
+
+
 function addAllArgs(...args){
     let i = 0;
     let  sum =0;
@@ -21,6 +23,7 @@ function addAllArgs(...args){
 function addFourNumbers(num1,num2,num3, num4){
     return num1+num2+num3+num4;
 }
+
 let fourNumbers = [1,2,3,4];
 // console.log(addFourNumbers(...fourNumbers));
 // console.log(...fourNumbers); //spreads the array.
@@ -61,7 +64,6 @@ function sumOfThreeNumbers(...elements){
 }
 
 
-
 // sumOfThreeNumbers(2,3,4)
 //     .then(result=> console.log(result))
 //     .catch(err =>console.log(error));
@@ -82,9 +84,9 @@ const test2 = {
     address:'jaynagar, bihar',
     skills:['developer', 'designer', 'engineer']
 }
-const {name, age, adress, skills} = test2;
-console.log(skills);
-console.log(age);
+// const {name, age, adress, skills} = test2;
+// console.log(skills);
+// console.log(age);
 // const {strength:classStrength, benches:classBenches}  = classDetails;
 // console.log(classStrength );
 // console.log(classBenches);
@@ -95,7 +97,7 @@ const {strength, benches}  = classDetails;
 //  array destructering 
 
 const arr = [11,22,31,24];
-const[first, second, third, forth] = arr;
+// const[first, second, third, forth] = arr;
 // console.log(first);
 // console.log(second);
 // console.log(third);
@@ -125,3 +127,38 @@ y = 4;
 
 // let initialiseClosure = randomFunc();
 // initialiseClosure();
+
+// ================================= JSON.parse() =============================================//
+// let userStr = '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
+
+// let userObj = JSON.parse(userStr);
+
+// console.log(userObj);
+
+// ================================= JSON.parse() =============================================//
+let userObj = {
+    name: "Sammy",
+    email: "sammy@example.com",
+    plan: "Pro"
+  };
+  
+  let userStr = JSON.stringify(userObj);
+  
+//   console.log(userStr);
+
+// ================================================//
+
+function divideByHalf(sum){
+    console.log(Math.floor(sum/2));
+}
+function multiplyBy2(sum){
+    console.log(sum * 2);
+}
+
+function operation(num1, num2, operation){
+    var sum = num1 + num2;
+    operation(sum);
+}
+// operation(3, 3, divideByHalf);
+
+

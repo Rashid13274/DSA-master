@@ -9,7 +9,7 @@ character only the order of characters in both the string is different.
 For example - (car, rac)
 
 Example:
-Input: s = 'chaebabacd'  p  ='abc'
+Input: s = 'cbaebabacd'  p  ='abc'
 Output: [0, 6]
 
  Example:
@@ -57,11 +57,16 @@ function isAnagram(s1Arr, s2Arr) {
     return true;
 }
 
-// let s = 'cbaebabacd', p = 'abc';
+
+
+let s = 'cbaebabacd', p = 'abc';
 // console.log(countAnagram(p, s));  // Output: [0, 6]
 
-s = 'abab';
-p = 'ab';
+// s = 'abab';
+// p = 'ab';
+// console.log(test(p, s));
 // console.log(countAnagram(p, s));  // Output: [0, 1, 2]
 // console.log(countAnagramTest(p, s));  // Output: [0, 1, 2]
 
+// let  val = p.charCodeAt(1) - 'a'.charCodeAt(0); // for g -> 7
+// console.log(typeof val) // number

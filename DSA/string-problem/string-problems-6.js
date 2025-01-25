@@ -35,7 +35,7 @@ function findDupliate(str){
 }
 
 
-
+test('programming')
 // findDupliate('java');
 // findDupliate('programming');
 

@@ -44,33 +44,20 @@ function validParenthesis(str) {
     return stack.length == 0;
 }
 
-function test(str){
-    let stack = [];
-    for(let i =0; i<str.length; i++){
-        if(str[i] == '(' || str[i] == '{' || str[i] =='['){
-            stack.push(str[i]);
-        }
-        else if(
-        (str[i] == ')' && stack[stack.length -1] == '(')  || 
-        (str[i] == '}' && stack[stack.length -1] == '{')  ||
-        (str[i] == ']' && stack[stack.length -1] == '[') 
-    ){
-        stack.pop();
-
-    }
-    else{
-        return false;
-    }
-
-    }
-    return stack.length == 0;
-}
+// Test cases
+console.log(test('{()}[]')); // true
+console.log(test('([)]')); // false
+console.log(test('{[]}'));   // true
+console.log(test('{()}[]')); // true
+console.log(test('([)]')); // false
 
 // Test cases
 // console.log(validParenthesis('{()}[]')); // true
 // console.log(validParenthesis('([)]')); // false
 // console.log(validParenthesis('{[]})'));   // true
+// console.log(validParenthesis(')'));   // true
 
-console.log(test('{()}[]')); // true
+
+// console.log(test('{()}[]')); // true
 // console.log(validParenthesis('([)]')); // false
-// console.log(validParenthesis('{[]})'));   // true
+// console.log(validParenthesis('{[]}'));   // true

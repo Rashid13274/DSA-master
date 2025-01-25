@@ -2,8 +2,7 @@
 return sum of all those  integers.
 Input: [-1,2,-1, -4], target = 1;
 Ouptut : [-1, 1, 2]
-
- */
+*/
 
 /**
  * Given an array of integers, find three integers such that their sum is closest to a target value.

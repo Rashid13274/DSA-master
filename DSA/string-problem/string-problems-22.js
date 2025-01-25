@@ -1,6 +1,13 @@
 /* Problems: Counting minutes
 Input: "12:30pm-12:00am" 
 Input: "1:23am-1:08am"
+
+Note: 
+let str = 'randome_pm';
+let val = str.slice(-2);
+console.log(val, str); // pm randome_pm
+
+so slice does not slice the actual passed string.
 */ 
 
 
@@ -19,6 +26,7 @@ Input: "1:23am-1:08am"
              console.log({a: a, b: b, c: c});
 
             console.log(period);
+            console.log(time)
             const [hours, minutes] = time.slice(0, -2).split(':').map(Number);
             console.log(hours);
     
@@ -48,10 +56,55 @@ Input: "1:23am-1:08am"
     
         return difference;
     }
+
+    function test(s){
+        let startTime = s.split('-')[0];
+        let endTime = s.split('-')[1];
+
+        let ss = calculateMin(startTime);
+        let e = calculateMin(endTime);
+        let diff = e - ss;
+
+        
+        if(diff < 0){
+            // add 24 hours since it'will happend next day
+            diff += 24 * 60;
+        }
+        return diff;
+        
+        function calculateMin(time){
+            const period = time.slice(-2); // am | pm;
+            const [hour, min] = time.slice(0, -2).split(':').map(Number);
+            let totalHours  = hour
+            if(period == 'pm' && hour !== 12){
+                totalHours += 12;
+            }
+            else if(period == 'am' && hour == 12){
+                totalHours  = 0;
+            }
+
+            return totalHours * 60 + min;
+        }
+        
+
+    }
+
+    console.log(test("12:30pm-12:00am")); // Output: 690
+    console.log(test("1:23am-1:08am"));   // Output: 1425
+    console.log(test("1:00pm-2:00am"));   // Output: 780
+
     // Test cases
     // console.log(countingMinutes("12:30pm-12:00am")); // Output: 690
     // console.log(countingMinutes("1:23am-1:08am"));   // Output: 1425
     // console.log(countingMinutes("1:00pm-2:00am"));   // Output: 780
     
+
+
+    /* note  */
+
+    // let str = 'randome_pm';
+    // let val = str.slice(-2);
+    // console.log(val, str);
+
 
 

@@ -82,26 +82,9 @@ function isAnagram2(str1,str2){
     return true;
 }
 
-
-// function test(s1,s2){
-//     let s1Arr = new Array(256).fill(0);
-//     let s2Arr = new Array(256).fill(0);
-
-//     if(s1.length > s2.length){
-//         return false;
-//     }
-
-//     for(let i =0; i<256; i++){
-//         let val = s1.charCodeAt(i);
-          
-
-//     }
-
-// }
-
-
-
 let string1 = 'listen';
 let string2 = 'silent';
 // console.log(isAnagram2(string1,string2));
+console.log(test(string1,string2));
+
 

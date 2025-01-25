@@ -14,6 +14,10 @@ map.set('c', 3);
 //     console.log(`keys:${keys} & values: ${value}`);
 // }
 
-for(const values of map.values()){
-    console.log(`values: ${values}`);
+// for(const values of map.values()){
+//     console.log(`values: ${values}`);
+// }
+
+for(const [key, value] of Array.from(map)){
+    console.log(`key ${key} : value:${value}`);
 }

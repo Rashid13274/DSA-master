@@ -1,18 +1,8 @@
-const n  = 20;
-let arr = new Array(n+ 1).fill(false);
-// using sieve of erosthomes alogoritham.
+const RATE_LIMIT_WINDOW = 2 * 60 * 1000  // 15 * 60 * 1000; // 15 minutes
+const MAX_REQUESTS =  5 // 100// Maximum number of requests per IP within the window
 
-for(let p = 2; p*p<=n; p++){
-    if(arr[p] == true){
-        arr[p] = false;
-    }
-    for(let i = p*p; i<=n; i+=p){
-        arr[i] = true;
-    }
-}
-
-for(let i =0; i<=n; i++ ){
-    if(arr[i] == true){
-        console.log(`${i} \n`)
-    }
-}
+// // Custom rate limiting middleware
+// const customRateLimiter = (req, res, next) => {
+//   const ip = req.ip; // Get the IP address of the client
+//   const currentTime = Date.now();
+console.log(Date.now());

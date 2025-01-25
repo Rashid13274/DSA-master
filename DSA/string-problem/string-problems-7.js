@@ -14,25 +14,23 @@ Output: 'b'
 
 function nonRepeatingCharacter(str){
     let map = new Map();
-    let arr = str.split('');
-
-    for(const element of arr){
-        if(map.get(element)){
+    //  first store the value in map 
+    for(let element of str){
+        if(map.has(element)){
             map.set(element, map.get(element) + 1);
-        } 
+        }
         else {
             map.set(element, 1);
         }
-
     }
-
-    for(const [key, value] of map){
-        if(value == 1){
-            return key;
+// second iteration for check first unique charactor
+    for(const element of str){
+        if(map.get(element) == 1){
+            return element;
         }
     }
 
-    return -1;
+    return 'non unique charactor found !';
 }
 
 // console.log(nonRepeatingCharacter('java'));
