@@ -58,15 +58,55 @@ function isAnagram(s1Arr, s2Arr) {
 }
 
 
+function test(p, s){
+    let s1Arr =  new Array(26).fill(0);
+    let s2Arr = new Array(26).fill(0);
 
-let s = 'cbaebabacd', p = 'abc';
+    let pLen = p.length;
+    let sLen = s.length;
+
+    let res = [];
+
+    for(let i = 0; i< pLen; i++){
+        s1Arr[p.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        s2Arr[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+    }
+
+    for(let i = 0; i <= sLen - pLen; i++ ){ //  10 - 3 = 7
+
+        if(helper(s1Arr, s2Arr)){
+            res.push(i);
+        }
+
+        if( i < sLen - pLen){
+            s2Arr[s.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+            s2Arr[s.charCodeAt(i + pLen) - 'a'.charCodeAt(0)]++;
+        }
+    }
+
+    function helper(s1Arr, s2Arr){
+        for(let i = 0; i<s1Arr.length; i++){
+            if(s1Arr[i] !== s2Arr[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+    return res;
+}
+
+// let s = 'cbaebabacd', p = 'abc';
 // console.log(countAnagram(p, s));  // Output: [0, 6]
+// console.log(test(p, s));  // Output: [0, 6]
+// console.log(testAnagram(p, s));  // Output: [0, 6]
 
-// s = 'abab';
-// p = 'ab';
+
+
+s = 'abab';
+p = 'ab';
 // console.log(test(p, s));
 // console.log(countAnagram(p, s));  // Output: [0, 1, 2]
-// console.log(countAnagramTest(p, s));  // Output: [0, 1, 2]
+console.log(test(p, s));  // Output: [0, 1, 2]
 
 // let  val = p.charCodeAt(1) - 'a'.charCodeAt(0); // for g -> 7
 // console.log(typeof val) // number

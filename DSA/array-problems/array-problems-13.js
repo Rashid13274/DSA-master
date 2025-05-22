@@ -44,12 +44,43 @@ function threeSumClosestTriplet(arr, target) {
     return closestTriplet;
 }
 
+function test(arr, target){
+    let result = [];
+    let closestSum = Number.MAX_SAFE_INTEGER;
+    arr.sort((a, b) => a - b);
+
+    for(let i = 0; i<arr.length -2; i++){
+        if (i > 0 && arr[i] === arr[i - 1]) continue; // to remove duplicate and redundancy.
+        let start  = i + 1;
+        let end = arr.length - 1;
+        while(start < end){
+            let currentSum = arr[i] + arr[start] + arr[end];
+            if ( Math.abs(target - currentSum) < Math.abs(closestSum - target)){
+                result = [arr[i], arr[start], arr[end]];
+            }
+            if(currentSum >  target){ // // 1, 2, 3, 5  target = 8;
+
+                end--;
+            }
+            else if(currentSum < target){
+                start++;
+            }
+            else{
+                return [arr[i], arr[start], arr[end]];
+            }
+
+        }
+    }
+    return result.length ? result : closestTriplet;
+
+}
+
 // Example usage:
 
 // let input = [-1, 2, -1, -4, -5,-2];
 let input = [-1, 2, -1, -4];
 let target = 1;
 
-let result = threeSumClosestTriplet(input, target);
+// let result = threeSumClosestTriplet(input, target);
 // console.log(result);  // Output: [-1, -1, 2]
-// console.log(test(input, target));
+console.log(test(input, target));

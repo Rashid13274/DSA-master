@@ -35,6 +35,8 @@ function longestCommonPrefix(arr) {
     }
     return prefix;
 }
+
+
 // Example usage:
 
 // console.log(longestCommonPrefix(['cat', 'cable', 'camera']));  // Output: 'ca'

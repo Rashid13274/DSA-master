@@ -64,7 +64,51 @@ function isPermutation(s1Arr, s2Arr){
     return true;
 }
 
+
+function test(s1, s2){
+    let s1Arr = new Array(26).fill(0);
+    let s2Arr = new Array(26).fill(0);
+    let s1Len = s1.length;
+    let s2Len = s2.length;
+    let isPermutation = false;
+
+    for(let i = 0; i<s1Len; i++){
+        s1Arr[s1.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        s2Arr[s2.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+    }
+    
+    for(let i = 0; i  < s2Len - s1Len; i++){
+        if(isperm(s1Arr, s2Arr)){
+            isPermutation = true;
+            break;
+        }
+
+        if( i < (s2Len  - s1Len)){
+            s2Arr[s2.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+            s2Arr[s2.charCodeAt(i + s1Len) - 'a'.charCodeAt(0)]++;
+        }
+    }
+
+    function isperm(s1Arr, s2Arr){
+        for(let i = 0; i<s1Arr.length; i++){
+            if(s1Arr[i] !== s2Arr[i]){
+                return false;;
+            }
+        }
+        return true;
+    }
+
+    return isPermutation;
+}
+
+console.log(test('ab', 'eidbaooo')); // Output: true
+console.log(test('ab', 'eidboaoo')); // Output: false
+
+
+
 // Example usage:
 // console.log(checkInclusion('ab', 'eidbaooo')); // Output: true
 // console.log(checkInclusion('ab', 'eidboaoo')); // Output: false
+
+
 

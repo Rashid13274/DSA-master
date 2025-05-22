@@ -81,8 +81,6 @@ function detectCapital(str) {
 }
 
 
-
-
 // 65 - 90 capital , 97 -122 small;
 // console.log(detectCapital('leetcode')); // Should return true
 // console.log(detectCapital('USA')); // Should return true

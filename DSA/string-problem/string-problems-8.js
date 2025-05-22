@@ -35,4 +35,7 @@ function uniqueCharacter(str){
 
 }
 // console.log(uniqueCharacter('calculate'));
+// console.log(uniqueCharacter('character'));
+
+
 

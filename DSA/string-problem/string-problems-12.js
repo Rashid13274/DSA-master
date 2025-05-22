@@ -26,7 +26,8 @@ function lastWordLength(s){
 }
 
 
+
 // let s = "Hello World";
-let s = "apple ball cat ";
+// let s = "apple ball cat ";
 // console.log(test(s));
 // console.log(lastWordLength(s));

@@ -12,6 +12,7 @@ function removeSpecialCharacter(str){
 // console.log(removeSpecialCharacter('$ja!va$&st%ar'));
 
 
+
 // ==================================================================================================//
 
 /* Remove all white space of given string
@@ -24,7 +25,8 @@ function removeWhiteSpace(str) {
     return result.split(' ').join('');
 }
 
-// const str = 'j a va s ta r';
+
+const str = 'j a va s ta r';
 // console.log(removeWhiteSpace(str));
 
 // ==================================================================================================//

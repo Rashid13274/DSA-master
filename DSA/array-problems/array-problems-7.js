@@ -26,10 +26,9 @@ function rotate(arr, k){
     console.log(result);
 }
 
-
-
 let arr = [1, 2, 3, 4, 5, 6, 7] , k = 3;
-console.log(test(arr,k));
+// rotate(arr, k);
+console.log(test(arr, k));
 
 
 

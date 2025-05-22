@@ -65,11 +65,45 @@ function fourSum(nums, target) {
   return result;
 }
 
+function test(arr, target){
+    let restult = [];
+    for(let i = 0; i<arr.length -3; i++){
+        if(i > 0 && arr[i] === arr[i - 1]) continue;
+
+        for(let j = i + 1; j < arr.length  -2; j++){ // 1,2,3,4 //  j = 1, arr.length = 2;
+        if(j > i+1 && arr[j] === arr[j - 1]) continue;
+        
+        let start = j + 1;
+        let end = arr.length - 1;
+
+        while(start < end){
+            let currentSum = arr[i] + arr[j] + arr[start] + arr[end];
+            if(target ===  currentSum){
+                restult.push([arr[i] + arr[j] + arr[start] + arr[end]]);
+                while(arr[start] === arr[start + 1] && start < end) start++;
+                while(arr[end] === arr[end -1] && end > start) end--;
+                start++;
+                end--;
+            }
+            else if(currentSum > target){
+                end--;
+            }
+            else{
+                start++;
+            }
+
+        }
+
+        }
+    }
+    return restult;
+}
+
 // Test cases
-console.log(fourSum([1,0,-1,0,-2,2], 0));
+// console.log(fourSum([1,0,-1,0,-2,2], 0));
 // Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 
-console.log(fourSum([2,2,2,2,2], 8));
+// console.log(fourSum([2,2,2,2,2], 8));
 // Output: [[2,2,2,2]]
 
 // Test cases
@@ -86,9 +120,11 @@ console.log(fourSum([2,2,2,2,2], 8));
 
   
    // Test : 1
-  // const arr =  [-3,-1,0,2,4,5]  
-  // const sum = 1;
-  // console.log(fourSum(arr, sum));  // [ [ -3, -1, 2, 3 ] ]
+  const arr =  [-3,-1,0,2,4,5]  
+  const sum = 1;
+//   console.log(fourSum(arr, sum));  // [ [ -3, -1, 0, 5 ] ]
+  console.log(test(arr, sum));  // [ [ -3, -1, 0, 5 ] ]
+
 
   // Test : 2
 
@@ -96,9 +132,9 @@ console.log(fourSum([2,2,2,2,2], 8));
   // const sum = 0;
 
   //  Test : 3
-  const arr = [-2,-1,-1,1,1,2,2];
-  const sum = 0;
-  console.log(fourSum(arr, sum));  // [ [ -2, -1, 1, 2 ], [ -1, -1, 1, 1 ] ]    
+//   const arr = [-2,-1,-1,1,1,2,2];
+//   const sum = 0;
+//   console.log(fourSum(arr, sum));  // [ [ -2, -1, 1, 2 ], [ -1, -1, 1, 1 ] ]    
   
   // console.log(fourSum(arr, sum));  // [ [ -2, -1, 1, 2 ], [ -2, 0, 0, 2 ], [ -1, 0, 0, 1 ] ]
 

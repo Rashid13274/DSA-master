@@ -14,7 +14,7 @@ function twoSum(arr, sum ){
     let map = new Map();
 
     for(let  i = 0; i<arr.length; i++){
-        const complement = sum - arr[i]; // 9 - 2 = 7;
+        let  complement = sum - arr[i]; // 9 - 2 = 7;
         if(map.has(complement)){
             return [map.get(complement), i];
         }
@@ -25,8 +25,6 @@ function twoSum(arr, sum ){
     return [];
 }
 
-
-
 const arr = [2,7,11,15] , sum = 9;
 // console.log(twoSum(arr, sum));
-// console.log(test(arr, sum))
+console.log(test(arr, sum))

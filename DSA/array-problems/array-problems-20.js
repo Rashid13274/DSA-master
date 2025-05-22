@@ -34,12 +34,7 @@ function sumOfSquireNumbers(c){
         }
         return false;
     };
-    
 
-
-
-const num = 6;
+const num = 5;
 // console.log(sumOfSquireNumbers(num));/
-console.log(test(num));
-
 // console.log(Math.pow(3, 2));

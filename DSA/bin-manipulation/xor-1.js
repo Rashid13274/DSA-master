@@ -99,4 +99,12 @@ console.log(nonRepeatingElement([5, 4, 1, 4, 1, 5, 3]));
 
 // ==================================================================//
 
+function uniqueItem(arr){
+    let item = 0;
+    arr.forEach((element) =>{
+        item = item ^ element
+    })
+    return item;
+}
 
+ console.log(uniqueItem([5, 4, 3, 4, 1,1,  0, 5, 3]));

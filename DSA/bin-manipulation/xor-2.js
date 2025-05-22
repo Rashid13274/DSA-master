@@ -56,6 +56,7 @@ function twoNonRepeatingElement(arr) {
     }
 }
 
+
 let arr = [5, 4, 1, 4, 3, 5, 1, 2];
 
-console.log(twoNonRepeatingElement(arr)); // Output should be [3, 2]
+// console.log(twoNonRepeatingElement(arr)); // Output should be [3, 2]

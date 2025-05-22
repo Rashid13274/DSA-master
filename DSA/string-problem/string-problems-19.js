@@ -9,6 +9,68 @@ s = 'abcd'
 t = 'abcde'
 Output: e
 */
-//  First using HashMap.  Time complexcity O(n) space complexcity O(n).
 
-// Second using array of size [256].  Time complexcity O(n) space complexcity O(1).
+// Solution 1: Using HashMap
+function findDifferenceHashMap(s, t) {
+    const charMap = new Map();
+    
+    // Count characters in string s
+    for (let char of s) {
+        charMap.set(char, (charMap.get(char) || 0) + 1);
+    }
+    
+    // Check characters in string t
+    for (let char of t) {
+        if (!charMap.has(char) || charMap.get(char) === 0) {
+            return char;
+        }
+        charMap.set(char, charMap.get(char) - 1);
+    }
+}
+
+// Solution 2: Using Array (ASCII count)
+function findDifferenceArray(s, t) {
+    const charCount = new Array(256).fill(0);
+    
+    // Count characters in string s
+    for (let char of s) {
+        charCount[char.charCodeAt(0)]++;
+    }
+    
+    // Check characters in string t
+    for (let char of t) {
+        charCount[char.charCodeAt(0)]--;
+        if (charCount[char.charCodeAt(0)] < 0) {
+            return char;
+        }
+    }
+}
+
+function test(s, t){
+    let set = new Set();
+    for(const element of s){
+        set.add(element);
+    }
+
+    for(const element of t){
+        if(!set.has(element)){
+            console.log(element);
+        }
+    }
+}
+const s = "abc";
+const t = "cbad";
+console.log( test(s, t)); // Output: e
+// console.log( test(s, t)); // Output: e
+
+
+// Test cases
+// const s1 = "abcd";
+// const t1 = "abcde";
+// console.log("Using HashMap:", findDifferenceHashMap(s1, t1)); // Output: e
+// console.log("Using Array:", findDifferenceArray(s1, t1)); // Output: e
+
+// const s2 = "abc";
+// const t2 = "cbad";
+// console.log("Using HashMap:", findDifferenceHashMap(s2, t2)); // Output: d
+// console.log("Using Array:", findDifferenceArray(s2, t2)); // Output: d

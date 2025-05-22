@@ -48,10 +48,11 @@ function countNumberOfJewels(jewels, stones){
 
 
 
-// let j = 'aA', s = 'aAAbbbb';
+// let j = 'aA', s = 'aAAbbbb'; // 3
 // console.log(test(j, s));
 
 let j=  'z', s = 'ZZ'
-// console.log(test(j, s));
+console.log(test(j, s));
+
 
 // console.log(countNumberOfJewels(j, s));

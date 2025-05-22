@@ -25,6 +25,8 @@ function isAnagram(str1, str2){
 
 
 
+
+
 function isAnagram(string1, string2) {
     let anagram = true; // Assume true unless proven otherwise
     if (string1.length !== string2.length) {
@@ -50,6 +52,7 @@ function isAnagram(string1, string2) {
 
     return anagram;
 }
+
 
 
 // let string1 = 'listen';
@@ -82,9 +85,11 @@ function isAnagram2(str1,str2){
     return true;
 }
 
-let string1 = 'listen';
-let string2 = 'silent';
+
+
+let str1 = 'listen';
+let str2 = 'silen';
 // console.log(isAnagram2(string1,string2));
-console.log(test(string1,string2));
+console.log(test(str1,str2));
 
 

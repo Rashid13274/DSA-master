@@ -28,8 +28,12 @@ function partitionedArray(arr, range) {
             i++; // Move forward after swapping
         } else if (arr[i] > range[1]) {
             swap(arr, end, i);
+            // [1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32];
             end--; // Decrease end but do not increase i to recheck
-        } else {
+        } else {   // for eg. if we swap 54 to 32, here we only need to decrease to end so pointer comes to 1
+                    // in case if we  increase i we'll move to next element i.e 20, but 32 will be always in 
+                    // middle making our whole program incorrrect.
+
             i++; // Move forward if within range
         }
     }
@@ -37,17 +41,51 @@ function partitionedArray(arr, range) {
 }
 
 // Updated swap function to modify the array directly
-function swap(arr, idx1, idx2) {
-    const temp = arr[idx1];
-    arr[idx1] = arr[idx2];
-    arr[idx2] = temp;
-}
+// function swap(arr, idx1, idx2) {
+//     const temp = arr[idx1];
+//     arr[idx1] = arr[idx2];
+//     arr[idx2] = temp;
+// }
 
+
+
+
+function test(arr , range){
+    let i  = 0;
+    let start  = 0;
+    let end = arr.length -1;
+
+    while(i < end) {
+            // [1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32];
+        if( arr[i] < range[0]){
+            swap(arr, start, i);
+            start++;
+            i++;
+        }
+        else if(arr[i] > range[1]){
+            swap(arr, end, i)
+                end--;
+        }else{
+            i++ // within the range;
+                
+        }
+
+    }
+
+    function swap(arr, swapPointer, i){
+        let temp =  arr[swapPointer];
+        arr[swapPointer] = arr[i];
+        arr[i] = temp;
+    }
+
+    return arr;
+}
 // Test case
 const arr = [1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32];
 
 const range = [10, 20];
 // console.log(partitionedArray(arr, range));
+console.log(test(arr, range))
 // output: [1,  5,  4,  2,  1,  3, 14, 20, 20, 98, 87, 32, 54]
 
 

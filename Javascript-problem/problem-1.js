@@ -49,8 +49,7 @@ function generatePassword(length) {
   } 
   
 //   Generate and display the password
-  const generatedPassword = generatePassword(6);
+  // const generatedPassword = generatePassword(6);
 //   alert(`Your generated password is: ${generatedPassword}`);
-  console.log(`Generated Password: ${generatedPassword}`);
-
+  // console.log(`Generated Password: ${generatedPassword}`);
 

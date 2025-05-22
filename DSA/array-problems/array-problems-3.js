@@ -29,16 +29,31 @@ function findPair(arr, sum){
 
 }
 
-
-
-
+// function test(arr, target){
+//     let res = [];
+//     let start = 0;
+//     let end = arr.length -1;
+//     while( start <= end){
+//         if(target == arr[start] + arr[end]){
+//             res.push([start, end]);
+//             start++;
+//             end--;
+//         }
+//         else if(arr[start] + arr[end] > target){
+//             end--;
+//         }
+//         else{
+//             start++;
+//         }
+//     }
+//     return res;
+// }
 
 
 
 let arr = [1, 2, 3, 4, 5, 6, 7];
-let sum = 9;
+let target = 9;
 
-// console.log(findPair(arr,sum));
-console.log(test(arr, sum));
+console.log(findPair(arr,target));
 
 

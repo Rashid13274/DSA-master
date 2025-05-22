@@ -25,6 +25,7 @@ function generateUsername(firstName, lastName) {
   }
   
   // Example usage
-  const username = generateUsername("John", "Doe");
-  console.log("Generated Username:", username);
+  // const username = generateUsername("John", "Doe");
+  // console.log("Generated Username:", username);
+
   

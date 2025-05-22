@@ -12,7 +12,7 @@ Input s = 'foo', t = 'bar'
 Output: Isomorphic (true)
 
 Ex: 3
-Input: s= 'abacba', t = 'xyxzyx';
+Input: s = 'abacba', t = 'xyxzyx';
 Output: Isomorphic (true);
 Explanation:  each occurance of s character will be exact same throughtout the t string character.
 such a is mapped to  x throughtout the t string, similarly  b is mapped to  y throughtout the string t.
@@ -38,28 +38,48 @@ function isomorphicString(s, t){
     return true;
 }
 
-function test(s, t){
-    if(s.length > t.length) {
-        return false;
-    }
-    let map = new Map();
+// function test(s, t){
+//     if(s.length > t.length) {
+//         return false;
+//     }
+//     let map = new Map();
 
-    for(let i = 0; i <s.length;i++){
-        let char_of_s = s[i];
-        let char_of_t = t[i];
-        if(map.has(char_of_s) && map.get(char_of_s) !== char_of_t){
-            return false;
+//     for(let i = 0; i <s.length;i++){
+//         let char_of_s = s[i];
+//         let char_of_t = t[i];
+//         if(map.has(char_of_s) && map.get(char_of_s) !== char_of_t){
+//             return false;
+//         }
+//         else{
+//             map.set(char_of_s, char_of_t);
+//         }
+//     }
+//     return true;
+// }
+
+
+function test(s, t){
+    let map = new Map();
+    let isomorphicString =  true;
+    for(let i = 0; i<s.length; i++){
+        let s_char = s.charAt(i);
+        let t_char = t.charAt(i);
+
+        // s = 'abacba', t = 'xyxzyx';
+        if(map.has(s_char) && map.get(s_char) !== t_char){
+            isomorphicString = false;
+            break;
         }
         else{
-            map.set(char_of_s, char_of_t);
+            map.set(s_char, t_char);
         }
     }
-    return true;
+  return isomorphicString;
 
 
 }
-
-// const s = 'abacba', t = 'xyxzyx';
-// const s = 'foo', t = 'egg';
-// const s = 'foo', t = 'bar'
+// const s = 'abacba', t = 'xyxzyx'; // true
+// const s = 'foo', t = 'egg'; // true
+// const s = 'foo', t = 'bar' // false
 // console.log(isomorphicString(s,t));
+console.log(test(s,t)); 

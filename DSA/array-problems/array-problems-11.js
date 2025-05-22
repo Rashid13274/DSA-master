@@ -23,7 +23,7 @@ function tripletSumPair(arr, sum) {
 
         let start = i + 1;
         let end = arr.length - 1;
-        let a = sum - arr[i]; // // a + b + c = x,  => a + b = x - a; x = 13;
+        let a = sum - arr[i];    // a + b + c = x,  => a + b = x - c; x = 13; => currentSum =  a
 
         while (start < end) {
             let currentSum = arr[start] + arr[end];
@@ -42,9 +42,12 @@ function tripletSumPair(arr, sum) {
     return stack;
 }
 
-// const arr = [1, 4, 6, 1, 4, 6, 45, 10, 8, 4]; 
-// let sum = 15;
+
+const arr = [1, 4, 6, 1, 4, 6, 45, 10, 8, 4]; 
+let sum = 15;
 // console.log(tripletSumPair(arr, sum)); // Output: [[1, 4, 8], [4, 6, 3]]
+console.log(test(arr, sum)); // Output: [[1, 4, 8], [4, 6, 3]]
+
 
 
 // const arr = [-1, 0, 1, 2, - 1, - 4];

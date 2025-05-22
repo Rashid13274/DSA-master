@@ -32,6 +32,7 @@ function validSubsequence(str1, str2){
 }
 
 
+
 let str1 = "abe", str2 = "abcdef";
 
 console.log(test(str1, str2));

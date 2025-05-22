@@ -44,6 +44,25 @@ function validParenthesis(str) {
     return stack.length == 0;
 }
 
+function test(str){
+    if(str.length % 2 !== 0) return 'not valid partenthesis';
+    let stack = [];
+
+    for(let i = 0; i<str.length; i++){
+        let val = str.charAt(i);
+        if(val == '(' || val == '{' || val == '['){
+            stack.push(val);
+        }
+        else if((val == ')' && stack[stack.length -1] == '(')  || ( val == '}'   && stack[stack.length -1])
+            || val === ']' || stack[stack.length -1] == ']'){
+
+                stack.pop();
+            }
+        }
+        return stack.length == 0;
+            
+}
+
 // Test cases
 console.log(test('{()}[]')); // true
 console.log(test('([)]')); // false

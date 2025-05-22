@@ -103,12 +103,51 @@ function romanToInteger(str) {
 }
 
 
+function test(s){
+    let map = new Map();
+    map.set('I', 1);
+    map.set('V', 5);
+    map.set('X', 10);
+    map.set('L', 50);
+    map.set('C', 100);
+    map.set('D', 500);
+    map.set('M', 1000);
+
+
+    function isRoman(str){
+        let arr = [
+            /IIII/,
+            /LL/,
+            /CCCC/,
+            /DD/,
+            /VV/,
+            /MMMM/
+
+        ]
+
+        for(const pattern of arr){
+            if(pattern.test(str)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    if(isRoman('IIII')){
+        return 'not a valid roman number';
+    }
+
+
+}
+
 // Example usage:
 // console.log(romanToInteger('XII'));    // Output: 12
 // console.log(romanToInteger('XI'));     // Output: 11
 // console.log(romanToInteger('VI'));     // Output: 6
 
 // console.log(romanToInteger('IIII'));   // Output: Invalid Roman numeral
+// console.log(test('IIII'));   // Output: Invalid Roman numeral
+
 
 
 

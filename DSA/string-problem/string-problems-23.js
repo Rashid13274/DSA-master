@@ -29,18 +29,27 @@ function largestOddNumber(num) {
   return "";
 }
 
-
-function test(str){
-  for(let i = str.length -1; i>= 0; i--){
-    if((str[i] - "0") % 2 != 0){
-      return str.substr(0, i + 1);
+// // const num = "35427";
+function test(num){
+  for(let i = num.length; i>= 0; i--){
+    if((num[i] - "0") % 2 !== 0){
+      return  num.substr(0, i + 1);
     }
   }
-  return '';
 }
 
+
+// function test(str){
+//   for(let i = str.length -1; i>= 0; i--){
+//     if((str[i] - "0") % 2 != 0){
+//       return str.substr(0, i + 1);
+//     }
+//   }
+//   return '';
+// }
+
 // const num = "52";
-// const num = "35427";
+const num = "35427";
 // const num = "2468";
 console.log(test(num));
 

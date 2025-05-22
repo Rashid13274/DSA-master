@@ -31,4 +31,4 @@ function twoSumII(arr, target){
     }
 }
 const numbers = [2,7,11,15], target = 9;
-console.log(twoSumII(numbers, target));
+// console.log(twoSumII(numbers, target));

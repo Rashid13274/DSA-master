@@ -57,6 +57,38 @@ function test(str){
     return res;
 }
 
-console.log(test('abckkteee')) // eeekkabct
-
+// console.log(test('abckkteee')) // eeekkabct
 // console.log(sortByFrequency('abckkteee')) // eeekkabct
+
+function test(str){
+    let map = new Map();
+    let res = '';
+
+    for(const element of str){
+        if(map.has(element)){
+            map.set(element, map.get(element) + 1);
+        }
+        else{
+            map.set(element, 1);
+        }
+    }
+
+    // convert map into array
+    let mappedArray = Array.from(map.entries());
+    
+    // sort the array.
+    mappedArray.sort((a, b) => b[1] - a[1]);
+    // console.log(mappedArray);
+
+
+    for(const [key, value] of  mappedArray ){
+        res +=key.repeat(value);
+
+    }
+    return res;
+}
+
+
+console.log(test('abckkteee')) // eeekkabct
+// test('abckkteee') // eeekkabct
+

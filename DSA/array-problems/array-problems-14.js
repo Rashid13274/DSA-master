@@ -34,7 +34,7 @@ n == nums.length
 All the numbers of nums are unique.
 */
 
-function findMissingNumber(arr){
+function findMissingNumber0ToN(nums){
 	let sumOfNumbers = 0;
     let n   = nums.length;
     sumOfNumbers = Math.floor((n * (n + 1))/2);
@@ -43,8 +43,36 @@ function findMissingNumber(arr){
     
 };
 
-// const arr = [1,2,5,4,6,8,7];
+// Test cases
+// const test1 = [3, 0, 1]; // missing 2
+// console.log(findMissingNumber0ToN(test1)); // Output: 2
+// const arr = [1,2,3,4,6,7, 0];
 // const arr = [3,0,1];  // output: 2
 // const arr = [0,1];  // output: 2
 // findMissingNumber(arr);
 // console.log(findMissingNumber(arr));
+// console.log(findMissingNumber([9,6,4,2,3,5,7,0,1])); // Output: 8
+// console.log(test([9,6,4,2,3,5,7,0,1])); // Output: 8
+// console.log(test(arr));
+
+function findMissingNumber1ToN(nums) {
+    const n = nums.length;
+    // For range 1 to N, sum formula is n*(n+1)/2
+    const expectedSum = ((n + 1) * (n + 2)) / 2; // Modified formula since range is 1 to n+1
+    const actualSum = nums.reduce((sum, num) => sum + num, 0);
+    return expectedSum - actualSum;
+}
+
+// Test cases
+const test1 = [1, 2, 4, 5]; // missing 3
+console.log(findMissingNumber1ToN(test1)); // Output: 3
+
+const test2 = [1, 3, 4]; // missing 2
+console.log(findMissingNumber1ToN(test2)); // Output: 2
+
+const test3 = [2, 3, 4, 5, 6]; // missing 1
+console.log(findMissingNumber1ToN(test3)); // Output: 1
+
+
+
+

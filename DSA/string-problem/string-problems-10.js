@@ -28,12 +28,8 @@ function groupAnagram(arr){
     return Array.from(map.values());
 }
 
-function test(arr){
-    
-}
-
-
 // console.log(test(['eat', 'tea', 'ton', 'ate', 'not', 'bat']));
+
 
 
 // groupAnagram(['eat', 'tea', 'ton', 'ate', 'not', 'bat']);

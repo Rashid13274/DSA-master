@@ -33,6 +33,29 @@ function nonRepeatingCharacter(str){
     return 'non unique charactor found !';
 }
 
+function test(s){
+    let map = new Map();
+    for(const element of s){
+        if(map.has(element)){
+            map.set(element, map.get(element) + 1);
+        }
+        else{
+            map.set(element, 1);
+        }
+    }
+
+    for(let i  = 0; i<s.length; i++){
+        let char = s.charAt(i);
+        if(map.has(char) && map.get(char) == 1){
+            return char;
+        } 
+    }
+    return false;
+}
+
 // console.log(nonRepeatingCharacter('java'));
 // console.log(nonRepeatingCharacter('webrewrite'));
+
+// console.log(test('javaj'));
+// console.log(test('webrewrite'));
 

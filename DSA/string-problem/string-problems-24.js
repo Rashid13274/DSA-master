@@ -31,21 +31,42 @@ function happyNumber(n){
     return n == 1;
 }
 
-function sumOfSquire(val){
-    let sum = 0;
-     while(val > 0){
-         let digit = val % 10;
-         sum += digit * digit;
-         val = Math.floor(val / 10); // Fix: Use Math.floor to truncate decimal part
-     }
-     return sum;
+// function sumOfSquire(val){
+//     let sum = 0;
+//      while(val > 0){
+//          let digit = val % 10;
+//          sum += digit * digit;
+//          val = Math.floor(val / 10); // Fix: Use Math.floor to truncate decimal part
+//      }
+//      return sum;
+// }
+
+function test(n){
+    let set = new Set();
+
+    while(n !== 1 && (!set.has(n)) ){
+        set.add(n);
+        n  = sumOfSquire(n);
+    }
+
+    function sumOfSquire(num){
+        let sq = 0;
+        while(num > 0){
+            let temp =  num % 10;
+            sq += temp * temp;
+            num = Math.floor(num/10);
+        }
+        return sq;
+    }
+     return n === 1 ? 'happy': 'not happy';
 }
 
 // const n = 2; // not a happyNumber;
 // const n  = 4; // not a happyNumber
-const n = 19; // happy number
-console.log(test(n));
+// const n = 19; // happy number
+// console.log(test(n));
 
 // console.log(happyNumber(n));
+// console.log(192939 % 10);
 
 

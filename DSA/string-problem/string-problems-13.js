@@ -39,9 +39,14 @@ function longesSubstringCount(str){
     return maxCount;
 }
 
-// console.log(longesSubstringCount('abcabcb'));
-// console.log(longesSubstringCount('pwwkew'));
-// console.log(longesSubstringCount('bbbbb'));
+
+// console.log(test('abcabcb'));
+// console.log(test('pwwkew'));
+// console.log(test('bbbbb'));
+
+console.log(longesSubstringCount('abcabcb')); // 3
+console.log(longesSubstringCount('pwwkew')); // 3
+console.log(longesSubstringCount('bbbbb')); // 1
 
 
 

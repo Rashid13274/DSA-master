@@ -32,31 +32,38 @@ function sortArrayByParity(nums){
     return nums;
 }
 
-
-function test(nums){
-    let j = nums.length -1;
-    for(let i = 0; i<nums.length; i++){
-        if(nums[i] % 2 == 0){
-            if( i !== j){
-                swap(arr, i, j);
-            }
-            j++;
-
-        }
-    
-    }
-    function swap(nums, i, j){
-        let temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-    return nums;
-
+function helper(arr, i, j){
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
+function test(arr){
+    let start = 0; 
+    let i =  0;
+     // 1234
+    let n = arr.length; 
+    while( i<n){
+        let val = arr[i];
+        if(i > start){
+            if(val % 2 == 0){
+                swap(arr, i, start);
+                start++;
+            }
+            // i++
+        }
+        // i++;
+        
+    }
+    function swap(arr, i, start){
+        let temp = arr[start];
+        arr[start] = arr[i];
+        arr[i] = temp;
 
-
+    }
+    return arr;
+}
 // const arr = [3,1,2,4];
 const arr = [2,1,0]
-console.log(sortArrayByParity(arr));
-// console.log(test(arr));
+// console.log(sortArrayByParity(arr));
+console.log(test(arr));

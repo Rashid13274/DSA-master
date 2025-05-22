@@ -1,31 +1,16 @@
-/* Find Second Smallest Number in an array.
-arr = [-1,7,1,34,18];
-
-Mathod: Traverse an array and keep two flag smallest and second smallest.
-The Time Complexcity of this approach is  O(n).
- */
 
 function test(arr){
-    let firstSmallest = Number.MAX_SAFE_INTEGER;
+    let firstSmallest  = Number.MAX_SAFE_INTEGER;
     let secondSmallest = Number.MAX_SAFE_INTEGER;
-    let temp;
-    for(const element of arr){
-        if(element < firstSmallest){
-             temp = firstSmallest;
-            firstSmallest = element;
-            secondSmallest  = temp;
-        } else if (element < secondSmallest && element !== firstSmallest) {
-            secondSmallest = element;
+    for(let i = 0; i< arr.length; i++){
+        if(arr[i] < firstSmallest){
+            firstSmallest = arr[i];
+        }
+        if(arr[i] > firstSmallest  &&  firstSmallest < secondSmallest){
+            secondSmallest  = arr[i];
         }
     }
-    return [firstSmallest, secondSmallest];
 }
-// const arr = [7,1, -1, 34,18];
-// let arr = [0, 7, 1, -1, 34, 18];
-let arr = [0, 7, 1, -1];
-
-
-console.log(test(arr));
 
 // Test case for the test function
 const testCases = [
