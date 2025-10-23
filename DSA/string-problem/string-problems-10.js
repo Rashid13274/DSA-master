@@ -6,31 +6,23 @@ Output:
 ['nat', 'tan']
 ['bat']
 ]
-
 */
 
 
 
-function groupAnagram(arr){
-
-    let map = new Map();
-
+function group_anagram(arr){
+    const map = new Map();
     for(const element of arr){
-        let key =  element.split('').sort().join();
-        if(map.has(key)){
-            map.get(key).push(element);
-        }
-        else{
-            map.set(key, [element]);
+        let sortedWord = element.split('').sort().join('');
+        if(map.has(sortedWord)){
+            map.get(sortedWord).push(element);
+        }else{
+            map.set(sortedWord, [element]);
         }
     }
-    
+
     return Array.from(map.values());
 }
-
-// console.log(test(['eat', 'tea', 'ton', 'ate', 'not', 'bat']));
-
-
 
 // groupAnagram(['eat', 'tea', 'ton', 'ate', 'not', 'bat']);
 // console.log(test(['eat', 'tea', 'ton', 'ate', 'not', 'bat']));

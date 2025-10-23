@@ -49,7 +49,7 @@ function polishNoatation(arr){
 
 // let arr = ["2", "1", "+", "3", "*"];
 let arr = ["4", "13", "5", "/", "+"];
-// console.log(polishNoatation(arr));
-console.log(test(arr));
+console.log(polishNoatation(arr));
+// console.log(test(arr));
 
 

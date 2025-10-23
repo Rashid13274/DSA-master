@@ -141,9 +141,9 @@ function test(s){
 }
 
 // Example usage:
-// console.log(romanToInteger('XII'));    // Output: 12
-// console.log(romanToInteger('XI'));     // Output: 11
-// console.log(romanToInteger('VI'));     // Output: 6
+// console.log(roman_to_integer('XII'));    // Output: 12
+// console.log(roman_to_integer('XI'));     // Output: 11
+// console.log(roman_to_integer('VI'));     // Output: 6
 
 // console.log(romanToInteger('IIII'));   // Output: Invalid Roman numeral
 // console.log(test('IIII'));   // Output: Invalid Roman numeral

@@ -72,3 +72,19 @@ function primeNumber(n){
 }
 
 // primeNumber(10);
+// =============================================================================================//
+
+
+function isPrime(num){
+    if(num <= 1) return false;  // 0 and 1 are not prime
+    if(num == 2) return true; // 2 is prime
+    if(num % 2 == 0) return true;   // even numbers > 2 are not prime
+
+    for(let i = 3; i<= Math.sqrt(num); i++){
+        if(num %  i ==  0 ){
+            return false;
+        }
+
+    }
+    return true;
+}

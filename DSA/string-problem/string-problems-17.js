@@ -89,6 +89,6 @@ function test(str){
 }
 
 
-console.log(test('abckkteee')) // eeekkabct
-// test('abckkteee') // eeekkabct
+    console.log(test('abckkteee')) // eeekkabct
+    // test('abckkteee') // eeekkabct
 

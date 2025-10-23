@@ -57,7 +57,7 @@ function findMissingNumber0ToN(nums){
 
 function findMissingNumber1ToN(nums) {
     const n = nums.length;
-    // For range 1 to N, sum formula is n*(n+1)/2
+    // For range 0 to N, sum formula is n*(n+1)/2
     const expectedSum = ((n + 1) * (n + 2)) / 2; // Modified formula since range is 1 to n+1
     const actualSum = nums.reduce((sum, num) => sum + num, 0);
     return expectedSum - actualSum;
@@ -73,6 +73,24 @@ console.log(findMissingNumber1ToN(test2)); // Output: 2
 const test3 = [2, 3, 4, 5, 6]; // missing 1
 console.log(findMissingNumber1ToN(test3)); // Output: 1
 
+
+/*  If the array is not sorted, you should:
+Find the minimum and maximum values.
+Calculate the expected sum of all numbers from min to max.
+Subtract the actual sum of the array from the expected sum to get the missing number.
+
+
+The sum formula approach works only if exactly one number is missing and both the minimum and maximum are present in the array. */
+function findMissing(arr) {
+    let min = Math.min(...arr);
+    let max = Math.max(...arr);
+    let expectedSum = ((max - min + 1) * (min + max)) / 2;
+    let actualSum = arr.reduce((a, b) => a + b, 0);
+    return expectedSum - actualSum;
+}
+
+// Example usage:
+console.log(findMissing([19, 11, 12, 13, 14, 16, 17, 18, 20])); // Output: 15
 
 
 

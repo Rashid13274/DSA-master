@@ -21,7 +21,7 @@ function longestCommonPrefix(arr) {
 
     let prefix = arr[0]; // Initial string as prefix
 
-    for (let i = 1; i < arr.length; i++) {
+for (let i = 1; i < arr.length; i++) {
         let currentString = arr[i];
         while (!currentString.startsWith(prefix)) {
             // Shorten the prefix by removing the last character

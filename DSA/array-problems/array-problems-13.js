@@ -44,36 +44,42 @@ function threeSumClosestTriplet(arr, target) {
     return closestTriplet;
 }
 
-function test(arr, target){
-    let result = [];
-    let closestSum = Number.MAX_SAFE_INTEGER;
+
+    function threeSumClosestTripletII(arr, sum){
     arr.sort((a, b) => a - b);
+    let res = [];
+    let diff = Number.MAX_SAFE_INTEGER;
 
-    for(let i = 0; i<arr.length -2; i++){
-        if (i > 0 && arr[i] === arr[i - 1]) continue; // to remove duplicate and redundancy.
-        let start  = i + 1;
-        let end = arr.length - 1;
+    for(let i = 0; i<arr.length-2; i++){
+        if( i> 0 && arr[i] == arr[i  -1]) continue;
+
+        let start = i + 1; 
+        let end = arr.length -1;
+
         while(start < end){
-            let currentSum = arr[i] + arr[start] + arr[end];
-            if ( Math.abs(target - currentSum) < Math.abs(closestSum - target)){
-                result = [arr[i], arr[start], arr[end]];
+            let currentSum  = arr[i] + arr[start] + arr[end];
+            if((Math.abs(sum - currentSum))  < diff){
+                diff = Math.abs(sum  - currentSum);
+                res = [arr[i], arr[start], arr[end]];
             }
-            if(currentSum >  target){ // // 1, 2, 3, 5  target = 8;
 
-                end--;
-            }
-            else if(currentSum < target){
+            if(currentSum < sum){
                 start++;
             }
-            else{
-                return [arr[i], arr[start], arr[end]];
+            else if(currentSum  > sum){
+                end--;
             }
+            else{
 
+                // if triplet is equivalent to sum. return the triplet.
+                return [arr[i], arr[start], arr[end]]
+            }
         }
     }
-    return result.length ? result : closestTriplet;
+    return  res;
+ }
 
-}
+
 
 // Example usage:
 

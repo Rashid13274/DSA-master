@@ -1,8 +1,8 @@
 // ======================== Higher order function =============================================== //
-// function higherOrder(fn){
-//     fn();
-// }
-// higherOrder(function(){console.log('hello world')});
+function higherOrder(fn){
+    fn();
+}
+higherOrder(function(){console.log('hello world')});
 
 // function higherOrderfunction2(){
 //     return function(){

@@ -65,5 +65,5 @@ function test(arr){
 }
 // const arr = [3,1,2,4];
 const arr = [2,1,0]
-// console.log(sortArrayByParity(arr));
-console.log(test(arr));
+console.log(sortArrayByParity(arr));
+// console.log(test(arr));

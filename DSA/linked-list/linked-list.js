@@ -25,6 +25,42 @@ class SinglyLinkedList {
         return this;
     }
 
+    pop() {
+        // no node in the list, therefore return null
+        if (!this.length) {
+          return null;
+        } else {
+          /*
+           * find the second to last node (it should become the new tail):
+           * - set the current head as currentNode (we always have to start from the List's head node)
+           * - set the current head as secondToLastNode (we can't go back a node, therefore we have to save the second to last)
+           * - as long as the current node has a next node (so it is not the last node)
+           * - then set the current node to the second to last
+           * - then set the current node's `next` as the current node
+           */
+        //   1 -> 2 -> 3 -> null
+          let currentNode = this.head;
+          let secondToLastNode = this.head;
+          while (currentNode.next) {
+            secondToLastNode = currentNode;
+            currentNode = currentNode.next;
+          }
+          // set the second to last node's `next` to `null` (the second to last should "cut" its connection to the next node)
+          secondToLastNode.next = null;
+          // set it as `tail`
+          this.tail = secondToLastNode;
+          // decrease the Singly Linked List's `length` by 1
+          this.length--;
+          // if the Singly Linked List now is empty, set its `head` and `tail` to `null`
+          if (!this.length) {
+            this.head = null;
+            this.tail = null;
+          }
+          // return the popped node (found some lines above)
+          return currentNode;
+        }
+    }
+
     // remove from the begining side.
     shift() {
         if (!this.head) {
@@ -128,6 +164,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    //  1 -> 2 ->null
     reverse() {
         if (!this.head) {
             return null;
@@ -136,13 +173,27 @@ class SinglyLinkedList {
         let prev = null;
 
         while (current) {
-            let temp = current.next;
+            let temp = current.next; 
             current.next = prev;
             prev = current;
             current = temp;
         }
         return prev;
     }
+    /* 2-> null
+    
+    step 1:
+    - temp = 2;
+    - current.next i.e 1 -> null
+    - prev(null)   = 1
+    - current =  temp 2;
+
+    step 2:
+    - temp  = null
+    -current.next i.e 1 -> 2
+    - prev = 2;
+    - current = null
+     */
 
     palindrome() {
         let slow = this.head;
