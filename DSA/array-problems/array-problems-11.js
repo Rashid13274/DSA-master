@@ -24,7 +24,6 @@ function tripletSumPair(arr, sum) {
         let start = i + 1;
         let end = arr.length - 1;
         let a = sum - arr[i];    // a + b + c = x,  => a + b = x - c; x = 13; => currentSum =  a
-
         while (start < end) {
             let currentSum = arr[start] + arr[end];
             if (currentSum === a) {

@@ -17,15 +17,15 @@ re = /hello/g // Global search
 // console.log(result.index); // at what index in string we found the result
 // console.log(result[0]); 
 
-console.log(re.source);
-console.log(re);
-console.log(re.exec('Hello')); // return array or null;
-console.log(re.test('Hello')); // returns true or false 
+// console.log(re.source);
+// console.log(re);
+// console.log(re.exec('Hello')); // return array or null;
+// console.log(re.test('Hello')); // returns true or false 
 
-let str = 'hello world';
-console.log(str.match(re)); // returns  the matched  string in array.
-console.log(str.search(re));
-console.log(str.replace(re, 'New String'));
+// let str = 'hello world';
+// console.log(str.match(re)); // returns  the matched  string in array.
+// console.log(str.search(re));
+// console.log(str.replace(re, 'New String'));
 
 
 
@@ -52,3 +52,6 @@ console.log(str.replace(re, 'New String'));
 // const str = 'Hello world';
 // const result = str.replace(re, 'hi');
 // console.log(result);
+
+
+console.log(re.test());

@@ -11,9 +11,8 @@ function test(arr){
     let temp;
     for(const element of arr){
         if(element < firstSmallest){
-             temp = firstSmallest;
-            firstSmallest = element;
-            secondSmallest  = temp;
+             secondSmallest  = firstSmallest
+             firstSmallest = element
         } else if (element < secondSmallest && element !== firstSmallest) {
             secondSmallest = element;
         }

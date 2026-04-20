@@ -98,7 +98,7 @@ so slice does not slice the actual passed string.
 
         const startMinutes = countingMinutes(startTime);
         const endMinutes = countingMinutes(endTime);
-        let diff  = endMinutes  -startMinutes;
+        let diff  = endMinutes - startMinutes;
 
         if(diff < 0){
             diff += 24 * 60;

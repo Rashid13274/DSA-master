@@ -62,6 +62,7 @@ function findMissingNumber1ToN(nums) {
     const actualSum = nums.reduce((sum, num) => sum + num, 0);
     return expectedSum - actualSum;
 }
+// formula = ((n + 1) * (n  + 2) / 2); where n =  nums.length;
 
 // Test cases
 const test1 = [1, 2, 4, 5]; // missing 3

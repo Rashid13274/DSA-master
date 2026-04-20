@@ -82,3 +82,113 @@ var removeDuplicateLetters = function(s) {
   console.log(removeDuplicateLetters("bcabc")); // Output: "abc"
   console.log(removeDuplicateLetters("cbacdcbc")); // Output: "acdb"
   
+
+  
+  /* 
+  Key Data Structures
+
+  stack:
+    An array used to build the result string character by character.
+    It maintains characters in a specific, ordered sequence.
+
+  seen:
+    A Set to quickly check if a character is already present in the stack.
+    This ensures the final string has no duplicate letters.
+
+  lastOccurrence:
+    An object (or hash map) that stores the last index where each character appears 
+    in the input string. This is crucial for deciding if we can safely remove a 
+    character from the stack now, knowing it will appear again later. 
+    
+
+  Logic Explained
+
+  The core idea is to iterate through the string and maintain a stack that is always 
+  trying to be as "small" (lexicographically) as possible from the beginning.
+
+  The while loop within the main for loop is where the main "magic" happens:
+
+    javascript
+    while (
+        stack.length > 0 &&
+        stack[stack.length - 1] > char &&
+        lastOccurrence[stack[stack.length - 1]] > i
+    ) {
+        seen.delete(stack.pop());
+    }
+
+  Use code with caution.
+
+  This loop checks three conditions before pushing a new char onto the stack:
+
+    1. stack.length > 0:
+         Ensures the stack is not empty.
+
+    2. stack[stack.length - 1] > char:
+         If the current character (char) is lexicographically smaller than the 
+         last character in the stack, we might be able to swap them to make the 
+         result string start with a smaller character (e.g., swapping b for a).
+
+    3. lastOccurrence[stack[stack.length - 1]] > i:
+         This is the crucial safety check. It confirms that the character currently 
+         at the top of the stack (stack[stack.length - 1]) appears again later in 
+         the string (after the current index i). If it appears again, we can safely 
+         remove it from the stack now, because we are guaranteed to process another 
+         instance of it later. 
+
+  If all three conditions are true, we pop the larger character from the stack and 
+  remove it from the seen set, making room for the smaller current character while 
+  still satisfying the "all unique characters" requirement.
+
+
+  Step-by-Step Walkthrough: bcabc
+
+  Let's trace how the input string s = "bcabc" is processed.
+
+  Initialization:
+    lastOccurrence: { 'b': 3, 'c': 4, 'a': 2 }
+    stack: []
+    seen: Set {}
+
+  Index i | Current Char char | Stack Before while | while Loop Conditions Check 
+          | Stack After while | seen | Notes
+
+  0 | b | [] 
+    The stack is empty, so the condition fails. 
+    ['b'] | { 'b' } 
+    'b' is pushed.
+
+  1 | c | ['b'] 
+    'b' is not greater than 'c', so the condition fails. 
+    ['b', 'c'] | { 'b', 'c' } 
+    'c' is pushed.
+
+  2 | a | ['b', 'c'] 
+    'c' is greater than 'a'? Yes. 
+    The last occurrence of 'c' (4) is greater than the current index (2)? Yes. 
+    'c' is popped. 
+    ['b'] | { 'b' }
+
+    'b' is greater than 'a'? Yes. 
+    The last occurrence of 'b' (3) is greater than the current index (2)? Yes. 
+    'b' is popped.
+
+  2 | a | [] 
+    The stack is empty, so the condition fails. 
+    ['a'] | { 'a' } 
+    'a' is pushed.
+
+  3 | b | ['a'] 
+    'a' is not greater than 'b', so the condition fails. 
+    ['a', 'b'] | { 'a', 'b' } 
+    'b' is pushed.
+
+  4 | c | ['a', 'b'] 
+    'b' is not greater than 'c', so the condition fails. 
+    ['a', 'b', 'c'] | { 'a', 'b', 'c' } 
+    'c' is pushed.
+
+  Result:
+    The final stack is ['a', 'b', 'c'].
+    The function returns "abc" after joining the stack.
+*/

@@ -24,6 +24,7 @@ function longesSubstringCount(str){
     let maxCount = 0;
     let len = str.length;
     let set = new Set(); 
+    
     while(end < len) {
         let char  = str.charAt(end);
         // 'pwwkew'

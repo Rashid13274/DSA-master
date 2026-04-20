@@ -8,7 +8,7 @@ function extractingArgs(...args){
 
 
 function addAllArgs(...args){
-    let i = 0;
+    let i = 0; 
     let  sum =0;
     while(i<args.length){
         sum+=args[i];
